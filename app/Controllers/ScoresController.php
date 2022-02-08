@@ -25,8 +25,23 @@ class ScoresController extends CoreController {
     }
 
     public function addScore() {
-        $data = $_POST['nbSeconds'] ;
-        var_dump($data);
+
+        $data = json_decode(file_get_contents("php://input"));
+        
+        if($data->nbSeconds !== "" && is_int($data->nbSeconds)) {
+            
+            $scoreToInsert = new Scores;
+
+            $scoreToInsert->setNbSeconds($data->nbSeconds);
+            $scoreToInsert->setDate(date("Y-m-d H:i:s"));
+            $scoreToInsert->insert();
+
+            http_response_code(201);
+            echo json_encode([
+                "message" => "score ajouté avec succès"
+            ]);
+        }
+       
     }
     
 }

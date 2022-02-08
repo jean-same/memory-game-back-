@@ -81,11 +81,11 @@ class Scores {
         $pdo = Database::getPDO();
 
         $sql = "
-            INSERT INTO `product` 
-                (name, description)
+            INSERT INTO `scores` 
+                (nbSeconds, date)
             VALUES (    
-            :name,
-            :description
+            :nbSeconds,
+            :date
         )";
 
         // Execution de la requête d'insertion (exec, pas query)
@@ -93,8 +93,8 @@ class Scores {
 
         // On execute notre requete preparée en liant les variables aux :
         $insertedRows->execute([
-            ':name' => $this->getNbSeconds(),
-            ':description' => $this->getDate(),
+            ':nbSeconds' => $this->getNbSeconds(),
+            ':date' => $this->getDate(),
         ]);
 
         // Si au moins une ligne ajoutée
