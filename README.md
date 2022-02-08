@@ -6,10 +6,10 @@
 
 2- Créer la base de données
 
-3- importer le fichier scores.sql pour remplir la base de données 
+3- Importer le fichier scores.sql pour remplir la base de données 
 
-4- Créer et remplir un fichier "config.ini" dans le dossier "app" 
+4- Créer et remplir un fichier "config.ini" dans le dossier "app", regardez le fichier "example.config.ini"
 
-5- lancer composer install
+5- Lancer composer install
 
-6- lancer votre serveur php sur le port de votre choix
+6- Demarrer le serveur php sur le port de votre choix
