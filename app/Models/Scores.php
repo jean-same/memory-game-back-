@@ -88,7 +88,6 @@ class Scores {
             :date
         )";
 
-        // Execution de la requête d'insertion (exec, pas query)
         $insertedRows = $pdo->prepare($sql);
 
         // On execute notre requete preparée en liant les variables aux :
@@ -102,9 +101,8 @@ class Scores {
             // Alors on récupère l'id auto-incrémenté généré par MySQL
             $this->id = $pdo->lastInsertId();
 
-            // On retourne VRAI car l'ajout a parfaitement fonctionné
+            // Je retourne VRAI car l'ajout a parfaitement fonctionné
             return true;
-            // => l'interpréteur PHP sort de cette fonction car on a retourné une donnée
         }
         
         // Si on arrive ici, c'est que quelque chose n'a pas bien fonctionné => FAUX

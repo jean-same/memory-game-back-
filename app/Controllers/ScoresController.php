@@ -15,13 +15,31 @@ class ScoresController extends CoreController {
     public function topTen (){
         $topTen = Scores::findTopTen();
 
-        $this->sendJSON($topTen);
+        if($topTen) {
+            http_response_code(200);
+            $this->sendJSON($topTen);
+        } else {
+            http_response_code(400);
+            echo json_encode([
+                "message" => "aucun score"
+            ]);
+        }
+
+
     }
 
     public function bestScore (){
-        $topTen = Scores::bestScore();
+        $bestScore = Scores::bestScore();
 
-        $this->sendJSON($topTen);
+        if($bestScore) {
+            http_response_code(200);
+            $this->sendJSON($bestScore);
+        } else {
+            http_response_code(400);
+            echo json_encode([
+                "message" => "aucun score"
+            ]);
+        }
     }
 
     public function addScore() {
@@ -40,6 +58,8 @@ class ScoresController extends CoreController {
             echo json_encode([
                 "message" => "score ajouté avec succès"
             ]);
+        } else {
+            http_response_code(422);
         }
        
     }

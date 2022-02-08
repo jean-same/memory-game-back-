@@ -56,7 +56,7 @@ $altoRouter->map(
         "method" => "addScore",
         "controller" => "App\Controllers\ScoresController"
     ],
-    'add'
+    'newscore'
 );
 
 $matchingRoute = $altoRouter->match();
@@ -83,5 +83,9 @@ if ($matchingRoute) {
     //*Je lance ma methode
     $controller->$nomMethode();
 } else {
-    exit('Page  not found');
+    http_response_code(404);
+
+    echo json_encode([
+        "message" => "Route non valide"
+    ]);
 }
