@@ -1,6 +1,6 @@
 ﻿## Simple API qui permet de récupérer les meilleurs scores du jeu et d’insérer les nouveaux scores.
 
-Etape pour faire fonctionner l'API:
+### Etape pour faire fonctionner l'API:
 
 1- Cloner le dépôt
 
